@@ -1,0 +1,36 @@
+{
+    "version": 2,
+    "configurePresets": [
+        {
+            "name": "dev",
+            "displayName": "dev",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build-dev",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+                "CMAKE_EXPORT_COMPILE_COMMANDS" : "ON"
+            }
+        },
+        {
+            "name": "dev-asan",
+            "displayName": "dev-san",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build-dev-asan",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+                "CMAKE_EXPORT_COMPILE_COMMANDS" : "ON",
+                "ECM_ENABLE_SANITIZERS" : "'address;undefined'"
+            }
+        },
+        {
+            "name": "release",
+            "displayName": "release",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build-release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_EXPORT_COMPILE_COMMANDS" : "ON"
+            }
+        }
+    ]
+}

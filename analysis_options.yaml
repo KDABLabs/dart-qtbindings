@@ -1,0 +1,5 @@
+analyzer:
+  errors:
+    must_be_a_native_function_type: ignore
+    non_native_function_type_argument_to_pointer: ignore
+    implicit_dynamic_return: ignore

@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+<typesystem package="QtDartBindings">
+    <primitive-type name="int"/>
+    <primitive-type name="bool"/>
+    <primitive-type name="char"/>
+    <primitive-type name="float"/>
+    <primitive-type name="double"/>
+    <primitive-type name="qreal"/>
+    <primitive-type name="qsizetype"/>
+    <primitive-type name="qint64"/>
+
+    <object-type name="QEvent" />
+    <object-type name="QPaintEvent"/>
+    <object-type name="QInputEvent"/>
+    <object-type name="QPointerEvent"/>
+    <object-type name="QSinglePointEvent"/>
+    <object-type name="QMouseEvent"/>
+
+    <object-type name="QSizePolicy">
+        <enum-type name="ControlType" />
+        <enum-type name="Policy" />
+        <enum-type name="PolicyFlag" />
+    </object-type>
+    <object-type name="QSize" />
+    <object-type name="QSizeF" />
+    <object-type name="QRect" />
+    <object-type name="QRectF" />
+    <object-type name="QColor"/>
+    <object-type name="QPoint" />
+    <object-type name="QPointF" />
+    <object-type name="QLine" />
+    <object-type name="QLineF" />
+    <object-type name="QFont">
+        <enum-type name="StyleHint" />
+    </object-type>
+    <object-type name="QShortcut" />
+    <object-type name="QKeySequence">
+        <enum-type name="StandardKey" />
+    </object-type>
+    <object-type name="QFontDatabase">
+        <enum-type name="SystemFont" />
+    </object-type>
+    <object-type name="QWidget">
+        <enum-type name="RenderFlag" />
+        <modify-function signature="setParent(QWidget*)" remove="all" />
+    </object-type>
+
+    <object-type name="QLayout" />
+    <object-type name="QLayoutItem" />
+    <object-type name="QBoxLayout" />
+    <object-type name="QGridLayout">
+        <modify-function signature="addWidget(QWidget*,int,int)" rename="addWidgetToGrid" />
+        <modify-function signature="addWidget(QWidget*,int,int,int,int)" rename="addWidgetToGrid" />
+        <modify-function signature="addItem(QLayoutItem*,int,int,int,int)" rename="addItemToGrid" />
+    </object-type>
+    <object-type name="QFormLayout" />
+    <object-type name="QHBoxLayout">
+        <modify-function signature="QHBoxLayout()" remove="all" />
+    </object-type>
+    <object-type name="QVBoxLayout">
+        <modify-function signature="QVBoxLayout()" remove="all" />
+    </object-type>
+
+    <object-type name="QMainWindow" />
+    <object-type name="QAbstractButton"/>
+    <object-type name="QPushButton"/>
+    <object-type name="QWindow">
+        <modify-function signature="setParent(QWindow*)" remove="all" />
+    </object-type>
+
+    <value-type name="QPalette">
+        <enum-type name="ColorGroup"/>
+        <enum-type name="ColorRole"/>
+    </value-type>
+
+    <object-type name="QPainter" />
+    <value-type name="QPen" />
+    <value-type name="QBrush" />
+    <value-type name="QIcon">
+        <enum-type name="Mode" />
+        <enum-type name="State" />
+    </value-type>
+    <value-type name="QPixmap">
+    </value-type>
+
+    <object-type name="QObject" />
+    <object-type name="QCoreApplication">
+        <enum-type identified-by-value="ApplicationFlags" />
+    </object-type>
+    <object-type name="QGuiApplication">
+        <modify-function signature="topLevelAt(const QPoint&amp;)" rename="topLevelWindowAtPos"/>
+        <modify-function signature="topLevelAt(int,int)" rename="topLevelWindowAt"/>
+    </object-type>
+
+    <object-type name="QApplication">
+        <add-function signature="QApplication()">
+            <inject-code file="shiboken_snippets/qtwidgets.cpp" snippet="qapplication-2"/>
+        </add-function>
+        <modify-function signature="QApplication(int&amp;,char**,int)" remove="all"/>
+        <modify-function signature="font(const QWidget*)" rename="fontForWidget"/>
+        <modify-function signature="font(const char*)" rename="fontForClassName"/>
+        <modify-function signature="topLevelAt(const QPoint&amp;)" rename="topLevelWidgetAtPos"/>
+        <modify-function signature="topLevelAt(int,int)" rename="topLevelWidgetAt"/>
+    </object-type>
+    <object-type name="QDialog" />
+    <object-type name="QInputDialog">
+        <modify-function signature="open(QObject*,const char*)" remove="all"/>
+    </object-type>
+
+    <object-type name="QStyleOption">
+        <enum-type name="OptionType" />
+        <enum-type name="StyleOptionType" />
+        <enum-type name="StyleOptionVersion" />
+    </object-type>
+
+    <object-type name="QStyleOptionComplex">
+        <enum-type name="StyleOptionType"/>
+        <enum-type name="StyleOptionVersion"/>
+    </object-type>
+
+    <object-type name="QStyleHintReturn">
+        <enum-type name="HintReturnType"/>
+        <enum-type name="StyleOptionType"/>
+        <enum-type name="Version"/>
+    </object-type>
+
+    <object-type name="QStyle">
+        <enum-type name="PrimitiveElement" />
+        <enum-type name="ControlElement" />
+        <enum-type name="SubElement" />
+        <enum-type name="ComplexControl" />
+        <enum-type name="SubControl" />
+        <enum-type name="PixelMetric" />
+        <enum-type name="ContentsType" />
+        <enum-type name="StateFlag" />
+        <enum-type name="StyleHint" />
+
+        <enum-type name="RequestSoftwareInputPanel" />
+        <enum-type name="StandardPixmap" />
+
+        <modify-function signature="polish(QWidget*)" rename="polishWidget"/>
+        <modify-function signature="polish(QApplication*)" rename="polishApplication"/>
+        <modify-function signature="unpolish(QPalette&amp;)" rename="unpolishPalette"/>
+        <modify-function signature="unpolish(QApplication*)" rename="unpolishApplication"/>
+    </object-type>
+
+    <object-type name="QStyleFactory" />
+    <object-type name="QAction" />
+    <object-type name="QMenu">
+        <modify-function signature="addAction(const QString&amp;)" rename="addActionStr"/>
+        <modify-function signature="addAction(const QIcon&amp;,const QString&amp;)" rename="addActionWithIcon"/>
+        <modify-function signature="addAction(const QString&amp;,const QObject *,const char*,QKeySequence)" remove="all"/>
+        <modify-function signature="addAction(const QIcon&amp;,const QString&amp;,const QObject *,const char*,QKeySequence)" remove="all"/>
+    </object-type>
+    <object-type name="QMenuBar">
+        <modify-function signature="addAction(const QString&amp;)" rename="addActionStr"/>
+        <modify-function signature="addAction(const QString&amp;,const QObject *,const char*)" remove="all"/>
+    </object-type>
+    <object-type name="QToolBar">
+        <modify-function signature="addAction(const QString&amp;)" rename="addActionStr"/>
+        <modify-function signature="addAction(const QIcon&amp;,const QString&amp;)" rename="addActionWithIcon"/>
+        <modify-function signature="addAction(const QString&amp;,const QObject *,const char*)" remove="all"/>
+        <modify-function signature="addAction(const QIcon&amp;,const QString&amp;,const QObject *,const char*)" remove="all"/>
+    </object-type>
+    <object-type name="QFrame" />
+    <object-type name="QAbstractScrollArea" />
+    <object-type name="QScrollArea" />
+    <object-type name="QTextEdit" />
+    <object-type name="QPlainTextEdit" />
+    <object-type name="QAbstractItemView">
+        <enum-type name="ScrollHint" />
+        <enum-type name="CursorAction" />
+        <modify-function signature="update(QModelIndex)" rename="updateIndex"/>
+    </object-type>
+    <object-type name="QTreeView" />
+    <object-type name="QTableView" />
+    <object-type name="QListView" />
+    <object-type name="QSplitter" />
+    <object-type name="QLabel" />
+    <object-type name="QLineEdit" />
+    <object-type name="QCheckBox" />
+    <object-type name="QStatusBar" />
+
+    <namespace-type name="Qt">
+        <enum-type name="EventPriority" />
+        <enum-type name="DisplayRole" />
+        <enum-type name="ItemDataRole" />
+        <enum-type name="LayoutDirection" />
+        <enum-type name="AlignmentFlag" />
+        <enum-type name="Orientation" flags="Orientations" />
+        <enum-type name="SortOrder" />
+        <enum-type name="KeyboardModifier" flags="KeyboardModifiers" />
+
+        <modify-function signature="convertFromPlainText(const QString &amp;)" remove="all"/>
+        <modify-function signature="mightBeRichText(const QString &amp;)" remove="all"/>
+
+        <modify-function signature="beginPropertyUpdateGroup()" remove="all"/>
+        <modify-function signature="endPropertyUpdateGroup()" remove="all"/>
+
+    </namespace-type>
+
+    <object-type name="QString">
+        <modify-function signature="swap(QString &amp;)" remove="all"/>
+    </object-type>
+    <object-type name="QByteArray" />
+    <object-type name="QList" />
+
+    <value-type name="QItemSelection" />
+    <object-type name="QItemSelectionModel">
+        <enum-type name="SelectionFlag" flags="SelectionFlags" />
+        <modify-function signature="select(const QModelIndex&amp;,QFlags&lt;QItemSelectionModel::SelectionFlag&gt;)" rename="selectIndex"/>
+    </object-type>
+    <value-type name="QRegion" />
+    <value-type name="QModelIndex" />
+    <object-type name="QStandardItem" />
+    <value-type name="QVariant">
+        <add-function signature="fromObject(QObject*)" return-type="QVariant" static="yes">
+            <inject-code class="target" position="beginning" file="shiboken_snippets/qvariant.cpp" snippet="qvariant-fromObject"/>
+        </add-function>
+        <add-function signature="toObject(QVariant)" return-type="QObject*" static="yes">
+            <inject-code class="target" position="beginning" file="shiboken_snippets/qvariant.cpp" snippet="qvariant-toObject"/>
+        </add-function>
+    </value-type>
+    <value-type name="QTimer" />
+    <object-type name="QAbstractItemModel">
+        <modify-function signature="parent(const QModelIndex&amp;)const" rename="parentIndex"/>
+        <modify-function signature="insertColumn(int,const QModelIndex&amp;)" remove="all"/>
+        <modify-function signature="insertRow(int,const QModelIndex&amp;)" remove="all"/>
+    </object-type>
+
+    <object-type name="QItemSelectionRange" />
+    <object-type name="QAbstractListModel" />
+    <object-type name="QAbstractProxyModel" />
+    <object-type name="QSortFilterProxyModel" />
+    <object-type name="QStandardItemModel" />
+    <object-type name="QProcess" />
+    <object-type name="QIODevice" />
+    <object-type name="QFileInfo" />
+
+</typesystem>

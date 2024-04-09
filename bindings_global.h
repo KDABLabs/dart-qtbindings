@@ -1,0 +1,7 @@
+/// This file is part of dart-qtbindings
+///
+/// SPDX-FileCopyrightText: 2022 Klarälvdalens Datakonsult AB, a KDAB Group company <info@kdab.com>
+/// SPDX-License-Identifier: MIT
+
+#include <QtWidgets/QtWidgets>
+#include <QtGui/QtGui>

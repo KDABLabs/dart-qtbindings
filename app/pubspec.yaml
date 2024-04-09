@@ -1,0 +1,15 @@
+name: DartBindingsTest
+description: A test app to test the dart bindings
+# version: 1.0.0
+# homepage: https://www.example.com
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+
+dependencies:
+  QtDartBindings:
+    path: '../generated/QtDartBindings/dart/'
+
+dev_dependencies:
+  pedantic: ^1.9.0
+  

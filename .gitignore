@@ -1,0 +1,15 @@
+libQtDartBindings.so
+*.o
+mjb_rejected_*.log
+/build
+CMakeFiles
+.ninja*
+CMakeCache.txt
+.dart_tool
+.packages
+build.ninja
+cmake_install.cmake
+CMakeLists.txt.user
+.cmake
+compile_commands.json
+/build-dev
